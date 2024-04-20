@@ -1,8 +1,8 @@
 "use client";
+require("dotenv").config({ path: "../.env" });
 
 import React, { useState, useEffect, useRef } from "react";
 
-// Define the component
 export default function Home() {
   const containerRef = useRef(null);
 
@@ -14,14 +14,13 @@ export default function Home() {
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
   }, [urls]);
 
-  // Function to handle the polling for status
   const pollForStatus = async () => {
     try {
       let status = "processing";
       while (status !== "done") {
         console.log("polling");
         const response = await fetch(
-          "http://127.0.0.1:8000/get_question_and_facts"
+          process.env.NEXT_PUBLIC_DOMAIN_URL + "/get_question_and_facts"
         );
         const data = await response.json();
         status = data.status;
@@ -40,8 +39,10 @@ export default function Home() {
     e.preventDefault();
 
     try {
+      console.log(process.env);
+      console.log(process.env.DOMAIN_URL);
       const response = await fetch(
-        "http://127.0.0.1:8000/submit_question_and_documents",
+        process.env.NEXT_PUBLIC_DOMAIN_URL + "/submit_question_and_documents",
         {
           method: "POST",
           headers: {
@@ -110,7 +111,6 @@ export default function Home() {
     setUrls(updatedUrls);
   };
 
-  // JSX to render the form
   return (
     <div className="bg-black">
       <h1 className="text-4xl font-bold mt-10 text-slate-100 text-center">

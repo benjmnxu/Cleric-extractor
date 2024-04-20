@@ -1,16 +1,19 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+import os
 
 from routes import router
+
+load_dotenv()
 
 app = FastAPI()
 
 #app.mount("/logs", StaticFiles(directory="logs"), name="logs")
 origins = [
-    "http://localhost",
-    "http://localhost:8080",
-    "http://localhost:3000",
+    os.environ.get("DOMAIN_URL")
+    
 ]
 
 app.add_middleware(
