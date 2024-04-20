@@ -10,11 +10,7 @@ load_dotenv()
 
 app = FastAPI()
 
-#app.mount("/logs", StaticFiles(directory="logs"), name="logs")
-origins = [
-    os.environ.get("DOMAIN_URL")
-    
-]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,

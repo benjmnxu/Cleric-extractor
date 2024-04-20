@@ -20,7 +20,7 @@ export default function Home() {
       while (status !== "done") {
         console.log("polling");
         const response = await fetch(
-          process.env.NEXT_PUBLIC_DOMAIN_URL + "/get_question_and_facts"
+          "https://cleric-extractor-server.vercel.app/get_question_and_facts"
         );
         const data = await response.json();
         status = data.status;
@@ -42,7 +42,7 @@ export default function Home() {
       console.log(process.env);
       console.log(process.env.DOMAIN_URL);
       const response = await fetch(
-        process.env.NEXT_PUBLIC_DOMAIN_URL + "/submit_question_and_documents",
+        "https://cleric-extractor-server.vercel.app/submit_question_and_documents",
         {
           method: "POST",
           headers: {
