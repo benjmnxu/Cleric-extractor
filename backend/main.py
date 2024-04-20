@@ -10,7 +10,7 @@ load_dotenv()
 
 app = FastAPI()
 
-origins = ["*"]
+origins = ["https://cleric-extractor.vercel.app/"]
 
 app.add_middleware(
     CORSMiddleware,
