@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.middleware import Middleware
 from dotenv import load_dotenv
 import os
 
@@ -9,6 +8,9 @@ from routes import router
 
 load_dotenv()
 
+app = FastAPI()
+
+#app.mount("/logs", StaticFiles(directory="logs"), name="logs")
 origins = [
     "http://localhost",
     "http://localhost:8080",
@@ -16,17 +18,13 @@ origins = [
     "https://cleric-extractor-client.onrender.com"
 ]
 
-middleware = [
-    Middleware(
-        CORSMiddleware,
-        allow_origins=origins,
-        allow_credentials=True,
-        allow_methods=['*'],
-        allow_headers=['*'],
-        max_age=86400
-    )
-]
-
-app = FastAPI(middleware=middleware)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+    max_age=86400
+)
 
 app.include_router(router)
