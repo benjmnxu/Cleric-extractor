@@ -20,7 +20,7 @@ export default function Home() {
       let status = "processing";
       while (status !== "done") {
         const response = await fetch(
-          "https://cleric-extractor-server.vercel.app/get_question_and_facts"
+          "https://cleric-extractor.onrender.com/get_question_and_facts"
         );
         const data = await response.json();
         status = data.status;
@@ -41,7 +41,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        "https://cleric-extractor-server.vercel.app/submit_question_and_documents",
+        "https://cleric-extractor.onrender.com/submit_question_and_documents",
         {
           method: "POST",
           headers: {
