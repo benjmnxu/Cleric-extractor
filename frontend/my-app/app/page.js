@@ -39,14 +39,12 @@ export default function Home() {
     e.preventDefault();
 
     try {
-      console.log(process.env);
-      console.log(process.env.DOMAIN_URL);
       const response = await fetch(
         "https://cleric-extractor-server.vercel.app/submit_question_and_documents",
         {
           method: "POST",
           headers: {
-            "Content-Type": "text/plain",
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             question: question,
