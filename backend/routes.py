@@ -2,7 +2,7 @@
 from fastapi import APIRouter, Body, Depends, Request, Response, HTTPException, BackgroundTasks
 from starlette.responses import FileResponse
 
-from utils.extractor import Extractor
+from utils.agents import Extractor, Merger
 from utils.parser import parser
 from utils.prompts import *
 from models import GetQuestionAndFactsResponse
@@ -11,6 +11,7 @@ router = APIRouter()
 result = None
 
 extractor = Extractor()
+merger = Merger()
 
 @router.post("/submit_question_and_documents")
 async def submit(payload: dict, background_tasks: BackgroundTasks):
@@ -34,9 +35,17 @@ async def get():
 
 
 def populate_facts(model_instance: GetQuestionAndFactsResponse, logs: list):
-    logs_str = "\n".join(logs)
-    messages = [
-        {"role": "system", "content": system_prompt()},
-        {"role": "user", "content": question_prompt(model_instance.question, logs_str)}  
-    ]
-    extractor.extract_and_set(messages, model_instance)
+    previous_message = ""
+    current_message = ""
+    for i, log in enumerate(logs):
+        if i == 0:
+            previous_message = extractor.extract(model_instance.question, log)
+        else:
+            current_message = extractor.extract(model_instance.question, log)
+            print(f"previous: {previous_message}")
+            print(f"current: {current_message}")
+            previous_message = merger.merge(current_message, previous_message)
+            print(f"merge: {previous_message}")
+    
+    model_instance.status = "done"
+    model_instance.facts = previous_message
