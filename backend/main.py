@@ -10,13 +10,19 @@ load_dotenv()
 
 app = FastAPI()
 
-origins = ["https://cleric-extractor.vercel.app/"]
+#app.mount("/logs", StaticFiles(directory="logs"), name="logs")
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    "http://localhost:3000",
+    "https://cleric-extractor.vercel.app"
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
     max_age=86400
 )
