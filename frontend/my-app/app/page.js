@@ -9,6 +9,7 @@ export default function Home() {
   const [question, setQuestion] = useState("");
   const [urls, setUrls] = useState([""]);
   const [summary, setSummary] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
@@ -18,7 +19,6 @@ export default function Home() {
     try {
       let status = "processing";
       while (status !== "done") {
-        console.log("polling");
         const response = await fetch(
           "https://cleric-extractor-server.vercel.app/get_question_and_facts"
         );
@@ -30,6 +30,7 @@ export default function Home() {
         }
         await new Promise((resolve) => setTimeout(resolve, 2500));
       }
+      setLoading(false);
     } catch (error) {
       console.error("Error polling for status:", error);
     }
@@ -59,6 +60,8 @@ export default function Home() {
 
       console.log("Form submitted successfully");
 
+      setLoading(true);
+      console.log(loading);
       pollForStatus();
     } catch (error) {
       console.error("There was an error!", error);
@@ -160,7 +163,13 @@ export default function Home() {
         <div className="w-9/12 h-96 bg-gray-100 rounded-lg p-4 mt-4 ml-4">
           <h2 className="text-black mb-2">Log Summary</h2>
           <div className="w-full px-4 py-2 rounded-lg text-black mt-4">
-            {displaySummary()}
+            {loading ? (
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black">
+                LOADING
+              </div>
+            ) : (
+              displaySummary()
+            )}
           </div>
         </div>
       </div>
