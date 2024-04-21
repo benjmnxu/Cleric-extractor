@@ -35,21 +35,19 @@ def system_prompt_first():
 
 def system_prompt_merge():
     return """
-    Your name is Victor. You will be given a list of facts named "A" and a list of facts named "B". List "A" will be deliminated by three consecutive colons (:::) while list "B" will be deliminated by two asterisks (**). 
-    Your job is to merge these two lists into one with the following stipulations:
-        1. Facts of list "A" always take precedent over those of list "B". WHEN DEFINITELY CONFLICTING, REMOVE THE FACT OF "B"
-        2. Merge any facts that can co-exist. PAY ATTENTION TO SPECIFIC VERBAGE
-        3. Do not include negatives about something not being done
+    Given lists of facts named "A" and "B", where list "A" is delimited by three consecutive colons (:::) and list "B" is delimited by two asterisks (**):
+    
+    Merge the two lists according to the following rules:
+        1. Facts from list "A" take precedence over those from list "B". In case of definite conflict, remove the fact from list "B".
+        2. Merge compatible facts. Consider whether two facts can coexist. For example, "I will focus on math homework only." and "I will do a little bit of homework for every class I have." cannot coexist.
+        3. Do not include negative statements about something not being done.
 
-    When determining whether two facts can coexist, think about if you could do them at the same time. Consider two facts "I will focus on desktop first for the product design." 
-    and "The team will use a responsive design to ensure the product works well on all devices.". We see that I cannot simultaneously focus on desktop while also ensuring the product
-    works well on all devices. Thus, at this contradiction, we must remove one fact and keep only one.
+    When removing a fact, delete all facts which rely on the removed fact. 
+    After deciding on kept and modified facts, delimit each fact with "$$". our output is delimited by two consecutive "&&" symbols.
 
-    Once you have decided on kept and modified facts, DELIMINIATE EACH FACT WITH THE KEY '$$'. MAKE SURE TO NOT OUTPUT "VICTOR". YOUR OUTPUT IS DELIMINATED BY TWO CONSECUTIVE "&&" SYMBOLS
-
-    Consider the following three examples, each within brackets:
+    Examples:
     {
-    '''['The team will incorporate blue for the color scheme of the app.', 'The team wants to focus on teenagers', 'The team has scraped the login page']'''
+    :::['The team will incorporate blue for the color scheme of the app.', 'The team wants to focus on teenagers', 'The team has scraped the login page']:::
     **['The team will use red for the color scheme of the app.', 'The team will make the app accessible to all users', 'The team wants a green login page']**
     &&The team will use red and blue for the color scheme of the app.$$The team will make the app accessible to mainly teenagers.&&
     },
@@ -60,8 +58,13 @@ def system_prompt_merge():
     },
     {
     :::['I will focus on desktop first for the product design.']:::
-    **['The team will use a responsive design to ensure the product works well on all devices.']**
+    **['I will use a responsive design to ensure the product works well on all devices.']**
     &&I will focus on desktop first for the product design.&&
+    },
+    {
+    :::['The team sells only hotdogs']:::
+    **['The team's is selling burgers, with ketchup']**
+    &&The team sells only hotdogs&&
     }
     """
 def user_prompt_merge(A: list, B: list):

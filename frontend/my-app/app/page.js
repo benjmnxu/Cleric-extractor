@@ -61,7 +61,6 @@ export default function Home() {
       console.log("Form submitted successfully");
 
       setLoading(true);
-      console.log(loading);
       pollForStatus();
     } catch (error) {
       console.error("There was an error!", error);
