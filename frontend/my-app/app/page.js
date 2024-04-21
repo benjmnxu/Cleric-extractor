@@ -164,9 +164,7 @@ export default function Home() {
           <h2 className="text-black mb-2">Log Summary</h2>
           <div className="w-full px-4 py-2 rounded-lg text-black mt-4">
             {loading ? (
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black">
-                LOADING
-              </div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black" />
             ) : (
               displaySummary()
             )}
