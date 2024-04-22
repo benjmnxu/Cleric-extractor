@@ -1,37 +1,36 @@
 def system_prompt_first():
     return """
-    Your name is Cleric. You will be asked a single question and be provided with a call log. The log will be deliminated with three tick marks ('''). 
-    From this log, CONSIDER THE FINAL AND NOT INTERMEDIATE decisions made by the end of the call.
-    You should extract and present a final list of unique facts that have definitely been agreed upon and are relevant to the asked question. DO NOT INCLUDE ANYTHING AMBIGUOUS
-    When facts are regarding the same specific subject matter, merge as many as logical. EACH FACT SHOULD BE UNIQUE AND CRUCIAL TO THE DESCRIPTION OF THE CALL.
-    Mimic the verbage of the fact proposal.
-    Deliminate each specific fact with the key '$$'.
+Your name is Cleric. You will be asked a single question and be provided with a call log. The log will be delimited with three tick marks ('''). 
+From this log, consider the final and not intermediate decisions made by the end of the call.
+You should extract and present a final list of unique facts that have definitely been agreed upon and are relevant to the asked question. Do not include anything ambiguous. If there are disagreements on a fact, do not include that fact.
+When facts are regarding the same specific subject matter, merge as many as logical. Each fact should be unique and crucial to the description of the call.
+Mimic the verbiage of the fact proposal.
+Delimit each specific fact with the key '$$'.
 
-    Consider the following examples, each within brackets:
-    {
-    Call Log:
-    '''
-    00:00:10 - Alex: Let's choose our app's color scheme today.
-    00:00:36 - Jordan: I suggest blue for a calm feel.
-    00:00:51 - Casey: We need to make sure it's accessible to all users.
-    00:00:55 - Alex: I think we should actually use red.
-    00:00:58 - Jordan: I agree. Let's move to red.
-    '''
-    User: What product design decisions did the team make?
-    Cleric: The team will use red for the color scheme of the app.$$The team will make the app accessible to all users.
-    },
-    {
-    Call Log:
-    '''
-    00:02:40 - Anthony: I think we should incorporate blue into the application
-    00:02:43 - John: Yeah I like that idea.
-    00:02:53 - Carl: Let's also roll back security backdoor. It's too big a risk
-    '''
-    User: What product design decisions did the team make?
-    Cleric: The team will incorporate red for the color scheme of the app.$$The team will roll back the security backdoor.
-    
-    }
-    """
+Consider the following examples, each within brackets:
+{
+Call Log:
+'''
+00:00:10 - Alex: Let's choose our app's color scheme today.
+00:00:36 - Jordan: I suggest blue for a calm feel.
+00:00:51 - Casey: We need to make sure it's accessible to all users.
+00:00:55 - Alex: I think we should actually use red.
+00:00:58 - Jordan: I agree. Let's move to red.
+'''
+User: What product design decisions did the team make?
+Cleric: The team will use red for the color scheme of the app.$$The team will make the app accessible to all users.
+},
+{
+Call Log:
+'''
+00:02:40 - Anthony: I think we should incorporate blue into the application
+00:02:43 - John: Yeah I like that idea.
+00:02:53 - Carl: Let's also roll back security backdoor. It's too big a risk
+'''
+User: What product design decisions did the team make?
+Cleric: The team will incorporate red for the color scheme of the app.$$The team will roll back the security backdoor.
+}
+"""
 
 def system_prompt_merge():
     return """
@@ -127,3 +126,48 @@ def question_prompt_followup(question: str, log: str, previous: str):
 
     User: {question}
     """
+
+
+def test_generation_prompt():
+    return f"""
+    Generate multiple call logs of a team/organization discussing some project or event. Make each team member argumentative with each other and have a lot of changes discuessed. 
+    Split each individual call using a tilda (~). Follow the below example deliminated by three ticks ('''):
+    '''
+    1
+    00:01:11,430 --> 00:01:40,520
+    John: Hello, everybody. Let's start with the product design discussion. I think we should go with a modular design for our product. It will allow us to easily add or remove features as needed.
+
+    2
+    00:01:41,450 --> 00:01:49,190
+    Sara: I agree with John. A modular design will provide us with the flexibility we need. Also, I suggest we use a responsive design to ensure our product works well on all devices. Finally, I think we should use websockets to improve latency and provide real-time updates.
+
+    3
+    00:01:49,340 --> 00:01:50,040
+    Mike: Sounds good to me. I also propose we use a dark theme for the user interface. It's trendy and reduces eye strain for users. Let's hold off on the websockets for now since it's a little bit too much work.
+    ~
+    1
+    00:01:11,430 --> 00:01:40,520
+    John: After giving it some more thought, I believe we should also consider a light theme option for the user interface. This will cater to users who prefer a brighter interface.
+
+    2
+    00:01:41,450 --> 00:01:49,190
+    Sara: That's a great idea, John. A light theme will provide an alternative to users who find the dark theme too intense.
+
+    3
+    00:01:49,340 --> 00:01:50,040
+    Mike: I'm on board with that.
+    ~
+    1
+    00:01:11,430 --> 00:01:40,520
+    John: I've been thinking about our decision on the responsive design. While it's important to ensure our product works well on all devices, I think we should focus on desktop first. Our primary users will be using our product on desktops.
+
+    2
+    00:01:41,450 --> 00:01:49,190
+    Sara: I see your point, John. Focusing on desktop first will allow us to better cater to our primary users. I agree with this change.
+
+    3
+    00:01:49,340 --> 00:01:50,040
+    Mike: I agree as well. I also think the idea of using a modular design doesn't make sense. Let's not make that decision yet.
+    '''
+
+"""

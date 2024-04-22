@@ -1,0 +1,75 @@
+'''
+1
+00:01:11,430 --> 00:01:40,520
+John: I think we should definitely push for our event to be outdoors. It's more open, and we can accommodate more people that way.
+
+2
+00:01:41,450 --> 00:01:49,190
+Sara: I disagree, John. An outdoor event is too risky considering the unpredictable weather. We should book an indoor venue to avoid any disruptions.
+
+3
+00:01:49,340 --> 00:01:50,040
+Mike: Both of you have points, but what about considering a venue with both indoor and outdoor spaces? That way, we're covered regardless of the weather.
+
+4
+00:01:50,210 --> 00:01:58,120
+Lucy: I’m not sure about that. Managing two spaces might stretch our resources too thin. We need to focus on one area to ensure quality.
+
+
+1
+00:02:00,110 --> 00:02:20,500
+John: Reflecting more on it, maybe we should just go with an indoor venue but ensure there's ample outdoor-themed decor to give it an open feel.
+
+2
+00:02:21,610 --> 00:02:30,720
+Sara: That sounds like a compromise, but shifting to an outdoor-themed decor might increase our budget. We need to keep costs in mind.
+
+3
+00:02:30,830 --> 00:02:40,940
+Mike: I think we are straying from the main objective. We should focus on the content and activities of the event rather than the venue specifics.
+
+4
+00:02:41,050 --> 00:02:50,160
+Lucy: Agreed with Mike. Let’s finalize the speakers and activities first. We’re getting too caught up with the venue details.
+
+
+1
+00:02:52,210 --> 00:03:10,330
+John: Back to the activities, I propose more interactive sessions. People should be engaged actively.
+
+2
+00:03:11,440 --> 00:03:20,550
+Sara: Interactive sessions are good, but we need to ensure there are also panels. We can't just have one type of activity; variety is key.
+
+3
+00:03:20,660 --> 00:03:30,770
+Mike: I’m concerned we’re overloading the schedule. People need downtime. Not everyone wants to go from one session to another.
+
+4
+00:03:30,880 --> 00:03:40,990
+Lucy: That’s a valid point. Let’s balance high-energy activities with some quieter, reflective sessions.
+
+
+1
+00:03:43,010 --> 00:04:00,130
+John: Okay, but let’s make sure the reflective sessions aren’t just filler. They need to be as well-thought-out as the other activities.
+
+2
+00:04:01,240 --> 00:04:10,350
+Sara: Definitely, we can integrate some workshops with industry leaders for those sessions. It adds value and isn't just downtime.
+
+3
+00:04:10,460 --> 00:04:20,570
+Mike: Workshops are a great idea, but let’s not overcommit on big names that might not draw the attention we expect.
+
+4
+00:04:20,680 --> 00:04:30,790
+Lucy: Then perhaps we should consider emerging talents in the industry for workshops. They bring fresh perspectives and it's more cost-effective.
+'''What are our product decisionsThe reflective sessions will be well-thought-out and not just filler.
+Workshops with industry leaders will be integrated into the reflective sessions.
+Emerging talents in the industry will be considered for workshops.
+The team will incorporate more interactive sessions into the activities.
+The team will ensure there are also panels for variety.
+The team will balance high-energy activities with quieter, well-thought-out reflective sessions.
+The team will focus on finalizing the speakers and activities for the event.
+The team will consider an indoor venue with outdoor-themed decor, keeping costs in mind.

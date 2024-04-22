@@ -1,0 +1,73 @@
+'''
+1
+00:01:11,430 --> 00:01:40,520
+John: I think we should definitely prioritize our launch event in New York. It’s a big market and could really push our project into the limelight.
+
+2
+00:01:41,450 --> 00:01:49,190
+Sara: New York, really? I was under the impression that we were leaning towards launching in San Francisco given the tech crowd and investor presence. We should reconsider this.
+
+3
+00:01:49,340 --> 00:01:50,040
+Mike: Both of you have points, but what about the costs associated with each location? We need to budget carefully, and New York is notoriously expensive.
+
+4
+00:01:50,240 --> 00:01:58,120
+Linda: Not to mention, the logistical nightmare New York could pose. I suggest we look into Chicago as well; it’s a good middle ground, cost-effective and logistically feasible.
+
+
+1
+00:02:00,430 --> 00:02:20,520
+John: Reflecting on our last discussion, I still think New York is viable if we secure the right sponsors. We shouldn’t dismiss it solely based on cost.
+
+2
+00:02:21,450 --> 00:02:29,190
+Sara: Sponsors or not, our main focus should be accessibility for our guests and potential partners. I still advocate for San Francisco or even Seattle.
+
+3
+00:02:29,340 --> 00:02:30,040
+Mike: I think we're overlooking potential in other cities with rich tech communities. What about Austin or Denver?
+
+4
+00:02:30,240 --> 00:02:38,120
+Linda: Let’s compile a cost-benefit analysis for each city. I think it’s the only way we’ll reach a consensus without going in circles about preferences.
+
+
+1
+00:02:40,430 --> 00:02:50,520
+John: Let’s shift gears and talk about the project timeline. I propose we lengthen phase one by two weeks to ensure all features are polished.
+
+2
+00:02:51,450 --> 00:02:59,190
+Sara: Extending phase one might delay our testing phase. We can’t afford to compromise on testing; it’s crucial for the project’s success.
+
+3
+00:02:59,340 --> 00:03:00,040
+Mike: I disagree with both. We should shorten phase one to accelerate our go-to-market. We can adjust as we progress.
+
+4
+00:03:00,240 --> 00:03:08,120
+Linda: Rushing can lead to mistakes. I support John’s idea of extending phase one, but only if we reassess our resources to maintain the testing phase duration.
+
+
+1
+00:03:10,430 --> 00:03:20,520
+John: Coming back to the location issue, I’ve contacted potential sponsors in New York, and there’s significant interest. This could offset some of the higher costs.
+
+2
+00:03:21,450 --> 00:03:29,190
+Sara: That’s promising, John. However, we need to consider the recent travel restrictions. It might affect attendees' ability to join in New York.
+
+3
+00:03:29,340 --> 00:03:30,040
+Mike: True, and we haven't even touched upon virtual engagement options yet. We should factor this into our decision.
+
+4
+00:03:30,240 --> 00:03:38,120
+Linda: I think it's wise to prepare for both in-person and virtual formats, regardless of the city we choose. Let’s not put all our eggs in one basket.
+'''What are our product decisionsThe team will consider potential sponsors in New York.
+The team will consider the impact of recent travel restrictions.
+The team will factor in virtual engagement options.
+The team will prepare for both in-person and virtual formats.
+Cleric: The team will lengthen phase one of the project to ensure all features are polished, with a reassessment of resources to maintain the testing phase duration.
+The team will compile a cost-benefit analysis for each potential city.
