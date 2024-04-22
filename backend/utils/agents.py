@@ -31,8 +31,26 @@ class Extractor(Agent):
     
 class Merger(Agent):
 
+    def reconcile(self, A: str):
+        # print(user_prompt_merge(A, B))
+        messages = [
+            {"role": "system", "content": "You will be given a list of facts. Combine any coexisting facts into one sentence and remove any facts which contradict."},
+            {"role": "user", "content": A}  
+        ]
+        merged_facts = openai.chat.completions.create(
+            model="gpt-4",
+            temperature=0.1,
+            messages = messages
+        )
+
+        content = merged_facts.choices[0].message.content
+        content = content.replace("&&", "")
+
+        facts = content.split("$$")
+        return facts
+
     def merge(self, A: list, B: list):
-        print(user_prompt_merge(A, B))
+        # print(user_prompt_merge(A, B))
         messages = [
             {"role": "system", "content": system_prompt_merge()},
             {"role": "user", "content": user_prompt_merge(A, B)}  
