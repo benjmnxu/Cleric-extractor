@@ -74,20 +74,23 @@ export default function Home() {
     if (summary && summary.length > 0) {
       return (
         <ul style={{ listStyleType: "none", padding: 0 }}>
-          {summary.map((item, index) => (
-            <li
-              key={index}
-              style={{
-                listStyleType: "none",
-                paddingLeft: "1em",
-                textIndent: "-1em",
-                marginBottom: "0.5em",
-              }}
-            >
-              <span style={{ color: "black", marginRight: "8px" }}>•</span>
-              {item}
-            </li>
-          ))}
+          {summary.map(
+            (item, index) =>
+              item.length > 0 && (
+                <li
+                  key={index}
+                  style={{
+                    listStyleType: "none",
+                    paddingLeft: "1em",
+                    textIndent: "-1em",
+                    marginBottom: "0.5em",
+                  }}
+                >
+                  <span style={{ color: "black", marginRight: "8px" }}>•</span>
+                  {item}
+                </li>
+              )
+          )}
         </ul>
       );
     }
