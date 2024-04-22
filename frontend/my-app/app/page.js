@@ -10,6 +10,7 @@ export default function Home() {
   const [urls, setUrls] = useState([""]);
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     containerRef.current.scrollTop = containerRef.current.scrollHeight;
@@ -32,7 +33,8 @@ export default function Home() {
       }
       setLoading(false);
     } catch (error) {
-      console.error("Error polling for status:", error);
+      setError("Failed to fetch data from your URLs. Please try again.");
+      setLoading(false);
     }
   };
 
@@ -64,6 +66,7 @@ export default function Home() {
       pollForStatus();
     } catch (error) {
       console.error("There was an error!", error);
+      setError("Failed to retrieve notes. Please try again.");
     }
   };
 
@@ -111,8 +114,25 @@ export default function Home() {
     setUrls(updatedUrls);
   };
 
+  const handleCloseError = () => {
+    setError(null);
+  };
+
   return (
     <div className="bg-black">
+      {error && (
+        <div className="fixed top-0 left-0 w-full h-full bg-gray-700 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-4 rounded-md">
+            <p className="text-red-600 mb-2">{error}</p>
+            <button
+              onClick={handleCloseError}
+              className="bg-gray-200 text-black px-3 py-1 rounded-md hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       <h1 className="text-4xl font-bold mt-10 text-slate-100 text-center">
         Extractor
       </h1>
