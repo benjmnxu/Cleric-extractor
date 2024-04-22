@@ -65,7 +65,11 @@ Mike: Workshops are a great idea, but let’s not overcommit on big names that m
 4
 00:04:20,680 --> 00:04:30,790
 Lucy: Then perhaps we should consider emerging talents in the industry for workshops. They bring fresh perspectives and it's more cost-effective.
-'''What are our product decisionsThe reflective sessions will be well-thought-out and not just filler.
+'''
+
+What are our product decisions
+
+The reflective sessions will be well-thought-out and not just filler.
 Workshops with industry leaders will be integrated into the reflective sessions.
 Emerging talents in the industry will be considered for workshops.
 The team will incorporate more interactive sessions into the activities.

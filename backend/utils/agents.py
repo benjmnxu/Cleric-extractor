@@ -1,7 +1,6 @@
 import openai
 import os
 from dotenv import load_dotenv
-from models import GetQuestionAndFactsResponse
 from utils.prompts import *
 
 load_dotenv()

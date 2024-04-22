@@ -62,7 +62,9 @@ Sara: Honestly, John, I think we're trying to do too much with the modular appro
 3
 00:05:49,340 --> 00:05:50,040
 Mike: I'm with Sara. Let's simplify and make our product more straightforward. Modular design can wait.
-'''What are our product decisionsThe team has decided not to proceed with the modular design and instead will simplify the product to make it more straightforward.
+'''What are our product decisions
+
+The team has decided not to proceed with the modular design and instead will simplify the product to make it more straightforward.
 The team will make minor tweaks to the shades of the product's palette.
 This is the last change to the product's palette.
 The team's approach will not deviate from their core development goals.

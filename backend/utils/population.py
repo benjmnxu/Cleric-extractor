@@ -1,4 +1,4 @@
-from models import GetQuestionAndFactsResponse
+from utils.models import GetQuestionAndFactsResponse
 from utils.agents import *
 
 extractor = Extractor()

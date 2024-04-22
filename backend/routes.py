@@ -3,9 +3,9 @@ from fastapi import APIRouter, HTTPException, BackgroundTasks
 
 from utils.parser import parser
 from utils.prompts import *
-from population import populate_facts
+from utils.population import populate_facts
 
-from models import GetQuestionAndFactsResponse
+from utils.models import GetQuestionAndFactsResponse
 
 router = APIRouter()
 result = None

@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 import asyncio
 
 from utils.prompts import *
-from population import populate_facts
-from models import *
+from backend.utils.population import populate_facts
+from backend.utils.models import *
 
 load_dotenv()
 

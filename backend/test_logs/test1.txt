@@ -65,7 +65,10 @@ Mike: As long as we maintain control over the campaign and messaging, I’m on b
 4
 00:03:50,150 --> 00:03:51,700
 Lily: It's settled then. Let’s start identifying potential partners but keep our brand’s integrity and message as the priority.
-'''What are our product decisionsThe team will focus on finding a partner that complements their strengths and aligns with their technology and customer base.
+'''
+What are our product decisions
+
+The team will focus on finding a partner that complements their strengths and aligns with their technology and customer base.
 The team will maintain control over the campaign and messaging.
 The team will prioritize their brand's integrity and message while identifying potential partners.
 The team will reduce the scale of the launch event to save funds for additional marketing channels.
